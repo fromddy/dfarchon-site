@@ -1,0 +1,74 @@
+interface TeamMember {
+  name: string;
+  role: string;
+  badgeStyle: "green-panel" | "pink-panel" | "panel";
+  description: string;
+}
+
+const MEMBERS: TeamMember[] = [
+  {
+    name: "ddy",
+    role: "FULL-STACK",
+    badgeStyle: "green-panel",
+    description:
+      "Primary architect. 5 years blockchain exp. Circom, Solidity, TypeScript, React.",
+  },
+  {
+    name: "9stx6",
+    role: "FULL-STACK",
+    badgeStyle: "pink-panel",
+    description:
+      "Active contributor since 2021. Contracts, frontend, plugins. Top player across onchain games.",
+  },
+  {
+    name: "3b",
+    role: "CONTRACTS",
+    badgeStyle: "panel",
+    description:
+      "Smart contract dev. 4 years web3. Solidity, Circom, Go. Ex-Celer, ARPA, Mantle.",
+  },
+  {
+    name: "SansX",
+    role: "SYSTEMS",
+    badgeStyle: "green-panel",
+    description:
+      "Backend specialist. Go, Rust, Python, TypeScript. Built replay engine & QA infra.",
+  },
+  {
+    name: "zkyu",
+    role: "ZK_ENG",
+    badgeStyle: "pink-panel",
+    description:
+      "Cryptography engineer. 7 years exp. zkRollup, ZK proofs, multi-chain L2.",
+  },
+];
+
+export default function Team() {
+  return (
+    <section id="team">
+      <h2 className="manga-text text-6xl mb-4">THE_NODES</h2>
+      <p className="text-sm text-gray-400 mb-12">
+        2 full-time + 3 part-time developers
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {MEMBERS.map((member) => (
+          <div key={member.name} className="panel p-4 group">
+            <div className="h-24 bg-black flex items-center justify-center mb-3 border-2 border-black">
+              <span className="text-green-400 font-mono text-2xl font-bold">
+                {member.name.slice(0, 2).toUpperCase()}
+              </span>
+            </div>
+            <div
+              className={`${member.badgeStyle} inline-block px-2 text-[10px] font-bold uppercase mb-2`}
+            >
+              {member.role}
+            </div>
+            <div className="font-bold text-sm mb-1">{member.name}</div>
+            <p className="text-[10px] opacity-60">{member.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
