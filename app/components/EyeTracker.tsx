@@ -15,7 +15,9 @@ export default function EyeTracker() {
       if (pupil2Ref.current) pupil2Ref.current.style.transform = transform;
     };
 
-    const handleMouseDown = () => {
+    const handleMouseDown = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest("a, button, iframe, [role='button']")) return;
       document.body.style.filter = "invert(1)";
     };
     const handleMouseUp = () => {

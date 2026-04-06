@@ -9,6 +9,10 @@
   --white: #FFFFFF;
 }
 
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   background-color: var(--black);
   color: var(--white);

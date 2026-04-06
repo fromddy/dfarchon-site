@@ -4,11 +4,11 @@ export default function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         <div className="md:col-span-8">
           <h1 className="manga-text text-7xl md:text-9xl mb-8">
-            DARK
+            DIGITAL
             <br />
-            FOREST
+            FRONTIER
             <br />
-            <span className="text-pink-500">PUNK</span>
+            <span className="text-pink-500">ARCHON</span>
           </h1>
 
           <div className="bubble max-w-2xl mb-8">
