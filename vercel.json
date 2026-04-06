@@ -3,7 +3,5 @@
   "installCommand": "pnpm install",
   "framework": null,
   "outputDirectory": "build/client",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }

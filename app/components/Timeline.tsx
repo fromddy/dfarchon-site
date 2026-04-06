@@ -7,11 +7,21 @@ interface TimelineEntry {
   category: Category;
 }
 
-const CATEGORIES: { key: Category; label: string; color: string; shape: "diamond" | "circle" | "circle-outline" }[] = [
+const CATEGORIES: {
+  key: Category;
+  label: string;
+  color: string;
+  shape: "diamond" | "circle" | "circle-outline";
+}[] = [
   { key: "launch", label: "LAUNCH", color: "bg-white", shape: "diamond" },
   { key: "grant", label: "GRANT", color: "bg-yellow-400", shape: "diamond" },
   { key: "milestone", label: "MILESTONE", color: "bg-white", shape: "circle" },
-  { key: "community", label: "COMMUNITY", color: "border-white border-2 bg-transparent", shape: "circle-outline" },
+  {
+    key: "community",
+    label: "COMMUNITY",
+    color: "border-white border-2 bg-transparent",
+    shape: "circle-outline",
+  },
 ];
 
 const EVENTS: TimelineEntry[] = [
@@ -104,40 +114,43 @@ const EVENTS: TimelineEntry[] = [
 function CategoryMarker({ category }: { category: Category }) {
   const cat = CATEGORIES.find((c) => c.key === category)!;
   if (cat.shape === "diamond") {
-    return (
-      <div
-        className={`w-3 h-3 ${cat.color} rotate-45 shrink-0`}
-      />
-    );
+    return <div className={`h-3 w-3 ${cat.color} shrink-0 rotate-45`} />;
   }
   if (cat.shape === "circle-outline") {
     return (
-      <div className="w-3 h-3 rounded-full border-2 border-white shrink-0" />
+      <div className="h-3 w-3 shrink-0 rounded-full border-2 border-white" />
     );
   }
-  return <div className={`w-3 h-3 rounded-full ${cat.color} shrink-0`} />;
+  return <div className={`h-3 w-3 rounded-full ${cat.color} shrink-0`} />;
 }
 
 export default function Timeline() {
   return (
     <div>
       <h1
-        className="font-bold text-6xl md:text-7xl mb-6 uppercase tracking-widest"
+        className="mb-6 text-6xl font-bold tracking-widest uppercase md:text-7xl"
         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
       >
         TIMELINE
       </h1>
-      <p className="text-gray-400 text-sm md:text-base max-w-2xl mb-10">
+      <p className="mb-10 max-w-2xl text-sm text-gray-400 md:text-base">
         From Dark Forest players to onchain game builders — three years of
         community-driven development.
       </p>
 
       {/* Category legend */}
-      <div className="flex flex-wrap gap-6 mb-12">
+      <div className="mb-12 flex flex-wrap gap-6">
         {CATEGORIES.map((cat) => (
-          <div key={cat.key} className="flex items-center gap-2 text-xs uppercase tracking-wide">
+          <div
+            key={cat.key}
+            className="flex items-center gap-2 text-xs tracking-wide uppercase"
+          >
             <CategoryMarker category={cat.key} />
-            <span className={cat.key === "grant" ? "text-yellow-400" : "text-gray-300"}>
+            <span
+              className={
+                cat.key === "grant" ? "text-yellow-400" : "text-gray-300"
+              }
+            >
               {cat.label}
             </span>
           </div>
@@ -145,34 +158,34 @@ export default function Timeline() {
       </div>
 
       {/* Timeline */}
-      <div className="bg-gray-950 border-4 border-gray-800 p-6 md:p-10">
+      <div className="border-4 border-gray-800 bg-gray-950 p-6 md:p-10">
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[5px] top-0 bottom-0 w-[2px] bg-gray-700" />
+          <div className="absolute top-0 bottom-0 left-[5px] w-[2px] bg-gray-700" />
 
           <div className="space-y-12">
             {EVENTS.map((event, i) => (
               <div key={i} className="relative pl-10">
                 {/* Marker */}
-                <div className="absolute left-0 top-1">
+                <div className="absolute top-1 left-0">
                   <CategoryMarker category={event.category} />
                 </div>
 
                 {/* Date */}
-                <div className="text-green-400 text-xs font-mono mb-2 border-b border-gray-800 pb-2 inline-block">
+                <div className="mb-2 inline-block border-b border-gray-800 pb-2 font-mono text-xs text-green-400">
                   {event.date}
                 </div>
 
                 {/* Title */}
                 <h3
-                  className="text-white text-xl md:text-2xl font-bold mb-2"
+                  className="mb-2 text-xl font-bold text-white md:text-2xl"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   {event.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
+                <p className="max-w-2xl text-sm leading-relaxed text-gray-400">
                   {event.description}
                 </p>
               </div>

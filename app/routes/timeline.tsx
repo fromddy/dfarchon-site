@@ -5,9 +5,9 @@ import ScanlineOverlay from "../components/ScanlineOverlay";
 import EyeTracker from "../components/EyeTracker";
 import Timeline from "../components/Timeline";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "DFArchon — Timeline" },
+    { title: "DFArchon" },
     { name: "description", content: "DFArchon development timeline" },
   ];
 }
@@ -19,7 +19,7 @@ export default function TimelinePage() {
       <EyeTracker />
       <Navbar />
 
-      <main className="max-w-5xl mx-auto py-12">
+      <main className="mx-auto max-w-5xl py-12">
         <Timeline />
       </main>
 
@@ -29,7 +29,7 @@ export default function TimelinePage() {
         href="https://dfpunk.xyz"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 green-panel px-4 py-2 font-bold uppercase text-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
+        className="green-panel fixed right-6 bottom-6 z-50 px-4 py-2 text-sm font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
       >
         PLAY DFPUNK
       </a>

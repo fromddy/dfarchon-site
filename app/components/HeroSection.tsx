@@ -1,9 +1,9 @@
 export default function HeroSection() {
   return (
     <section id="vision" className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12">
         <div className="md:col-span-8">
-          <h1 className="manga-text text-7xl md:text-9xl mb-8">
+          <h1 className="manga-text mb-8 text-7xl md:text-9xl">
             DIGITAL
             <br />
             FRONTIER
@@ -11,8 +11,8 @@ export default function HeroSection() {
             <span className="text-pink-500">ARCHON</span>
           </h1>
 
-          <div className="bubble max-w-2xl mb-8">
-            <p className="text-black font-bold text-lg">
+          <div className="bubble mb-8 max-w-2xl">
+            <p className="text-lg font-bold text-black">
               "We are DFArchon — the community that inherited Dark Forest and
               keeps the fog of war alive. From community rounds to a full MUD
               engine rebuild, we prove that fully onchain games belong to the
@@ -20,40 +20,38 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex flex-wrap gap-4">
             <ManifestoCard />
             <StatusCard />
           </div>
         </div>
 
-        <div className="md:col-span-4 relative">
-          <div className="panel p-4 rotate-2 hover:rotate-0 transition-transform duration-300">
-            <div className="h-64 bg-black flex items-center justify-center relative overflow-hidden">
+        <div className="relative md:col-span-4">
+          <div className="panel rotate-2 p-4 transition-transform duration-300 hover:rotate-0">
+            <div className="relative flex h-64 items-center justify-center overflow-hidden bg-black">
               <div className="absolute inset-0 opacity-20">
                 {Array.from({ length: 200 }).map((_, i) => (
                   <span
                     key={i}
-                    className="inline-block text-green-400 text-[8px] font-mono"
+                    className="inline-block font-mono text-[8px] text-green-400"
                   >
-                    {Math.random() > 0.5 ? "1" : "0"}
+                    {(i * 17 + 7) % 2 === 0 ? "1" : "0"}
                   </span>
                 ))}
               </div>
               <div className="relative text-center">
-                <div className="text-green-400 font-mono text-5xl mb-2">
-                  DF
-                </div>
-                <div className="text-green-400 font-mono text-xs">
+                <div className="mb-2 font-mono text-5xl text-green-400">DF</div>
+                <div className="font-mono text-xs text-green-400">
                   ARCHON_COLLECTIVE
                 </div>
               </div>
             </div>
-            <p className="text-xs mt-2 font-bold uppercase">
+            <p className="mt-2 text-xs font-bold uppercase">
               EST. 2021 — DARK FOREST COMMUNITY
             </p>
           </div>
 
-          <div className="absolute -bottom-10 -left-10 bg-black text-green-400 p-2 text-[10px] font-mono leading-tight">
+          <div className="absolute -bottom-10 -left-10 bg-black p-2 font-mono text-[10px] leading-tight text-green-400">
             // zkSNARK_FOG_ACTIVE...
             <br />
             // MUD_ENGINE: ONLINE...
@@ -68,8 +66,8 @@ export default function HeroSection() {
 
 function ManifestoCard() {
   return (
-    <div className="green-panel p-4 flex-1 min-w-[200px]">
-      <h3 className="font-bold border-b-2 border-black mb-2">MANIFESTO</h3>
+    <div className="green-panel min-w-[200px] flex-1 p-4">
+      <h3 className="mb-2 border-b-2 border-black font-bold">MANIFESTO</h3>
       <p className="text-sm">
         Fully onchain. Zero-knowledge. No central authority. Dark Forest proved
         that crypto games can be real — we're making sure they stay that way.
@@ -80,11 +78,11 @@ function ManifestoCard() {
 
 function StatusCard() {
   return (
-    <div className="panel p-4 flex-1 min-w-[200px]">
-      <h3 className="font-bold border-b-2 border-black mb-2">
+    <div className="panel min-w-[200px] flex-1 p-4">
+      <h3 className="mb-2 border-b-2 border-black font-bold">
         ACTIVE SINCE 2021
       </h3>
-      <ul className="text-xs space-y-1">
+      <ul className="space-y-1 text-xs">
         <li>38 public repos</li>
         <li>5+ community rounds hosted</li>
         <li>Dark Forest Punk live on OP Mainnet</li>

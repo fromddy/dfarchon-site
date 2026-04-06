@@ -15,17 +15,17 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-32 border-t-8 border-black pt-12 pb-24 grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer className="mt-32 grid grid-cols-1 gap-12 border-t-8 border-black pt-12 pb-24 md:grid-cols-2">
       <div>
-        <h3 className="manga-text text-4xl mb-4">JOIN_THE_FOG</h3>
-        <p className="text-sm max-w-md">
+        <h3 className="manga-text mb-4 text-4xl">JOIN_THE_FOG</h3>
+        <p className="max-w-md text-sm">
           DFArchon is a research collective building fully onchain games and
           autonomous worlds. We inherited Dark Forest and we're not letting go.
         </p>
-        <p className="text-xs text-gray-500 mt-2">
+        <p className="mt-2 text-xs text-gray-500">
           dfarchon@gmail.com &middot; EST. 2021
         </p>
-        <div className="mt-8 flex gap-4 flex-wrap">
+        <div className="mt-8 flex flex-wrap gap-4">
           {SOCIAL_LINKS.map((link) => (
             <a
               key={link.label}
@@ -41,8 +41,8 @@ export default function Footer() {
       </div>
 
       <div className="green-panel p-8">
-        <h4 className="font-bold mb-4 uppercase">SYSTEM_LOG</h4>
-        <div className="font-mono text-[10px] space-y-1 opacity-80">
+        <h4 className="mb-4 font-bold uppercase">SYSTEM_LOG</h4>
+        <div className="space-y-1 font-mono text-[10px] opacity-80">
           {SYSTEM_LOGS.map((log, i) => (
             <div key={i}>{log}</div>
           ))}

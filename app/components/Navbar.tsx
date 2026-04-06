@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const NAV_ITEMS = [
   { href: "/#vision", label: "01_VISION" },
   { href: "/#tech", label: "02_STACK" },
@@ -8,17 +10,31 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-wrap gap-2 mb-12 relative z-10">
-      <a href="/" className="pink-panel p-2 font-bold text-xl uppercase italic border-4 border-black no-underline">
+    <nav className="relative z-10 mb-12 flex flex-wrap gap-2">
+      <Link
+        to="/"
+        prefetch="intent"
+        className="pink-panel border-4 border-black p-2 text-xl font-bold uppercase italic no-underline"
+      >
         DFArchon
-      </a>
+      </Link>
 
-      {NAV_ITEMS.map((item) => (
-        <a key={item.href} href={item.href} className="nav-link">
-          {item.label}
-        </a>
-      ))}
-
+      {NAV_ITEMS.map((item) =>
+        item.href === "/timeline" ? (
+          <Link
+            key={item.href}
+            to={item.href}
+            prefetch="intent"
+            className="nav-link"
+          >
+            {item.label}
+          </Link>
+        ) : (
+          <a key={item.href} href={item.href} className="nav-link">
+            {item.label}
+          </a>
+        )
+      )}
     </nav>
   );
 }

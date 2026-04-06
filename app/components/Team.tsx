@@ -46,25 +46,25 @@ const MEMBERS: TeamMember[] = [
 export default function Team() {
   return (
     <section id="team">
-      <h2 className="manga-text text-6xl mb-4">THE_NODES</h2>
-      <p className="text-sm text-gray-400 mb-12">
+      <h2 className="manga-text mb-4 text-6xl">THE_NODES</h2>
+      <p className="mb-12 text-sm text-gray-400">
         2 full-time + 3 part-time developers
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {MEMBERS.map((member) => (
-          <div key={member.name} className="panel p-4 group">
-            <div className="h-24 bg-black flex items-center justify-center mb-3 border-2 border-black">
-              <span className="text-green-400 font-mono text-2xl font-bold">
+          <div key={member.name} className="panel group p-4">
+            <div className="mb-3 flex h-24 items-center justify-center border-2 border-black bg-black">
+              <span className="font-mono text-2xl font-bold text-green-400">
                 {member.name.slice(0, 2).toUpperCase()}
               </span>
             </div>
             <div
-              className={`${member.badgeStyle} inline-block px-2 text-[10px] font-bold uppercase mb-2`}
+              className={`${member.badgeStyle} mb-2 inline-block px-2 text-[10px] font-bold uppercase`}
             >
               {member.role}
             </div>
-            <div className="font-bold text-sm mb-1">{member.name}</div>
+            <div className="mb-1 text-sm font-bold">{member.name}</div>
             <p className="text-[10px] opacity-60">{member.description}</p>
           </div>
         ))}

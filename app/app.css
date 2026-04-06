@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap");
 
 @import "tailwindcss";
 
 :root {
-  --pink: #FF0099;
-  --green: #00FF00;
+  --pink: #ff0099;
+  --green: #00ff00;
   --black: #000000;
-  --white: #FFFFFF;
+  --white: #ffffff;
 }
 
 [id] {
@@ -16,14 +16,14 @@
 body {
   background-color: var(--black);
   color: var(--white);
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   cursor: default;
   overflow-x: hidden;
 }
 
 /* ===== 漫画风格大标题 ===== */
 .manga-text {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
   color: white;
   -webkit-text-stroke: 2px black;
@@ -85,8 +85,12 @@ body {
   animation: marquee 20s linear infinite;
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ===== 气泡对话框 ===== */
@@ -97,7 +101,7 @@ body {
   padding: 15px;
 }
 .bubble::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 20px;

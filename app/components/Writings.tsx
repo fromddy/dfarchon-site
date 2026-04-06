@@ -51,21 +51,21 @@ function ArticleModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative w-[95vw] h-[90vh] border-4 border-black bg-white">
-        <div className="flex items-center justify-between px-4 py-2 bg-black text-white border-b-4 border-black">
-          <div className="font-bold text-sm truncate mr-4">{entry.title}</div>
-          <div className="flex items-center gap-3 shrink-0">
+      <div className="relative h-[90vh] w-[95vw] border-4 border-black bg-white">
+        <div className="flex items-center justify-between border-b-4 border-black bg-black px-4 py-2 text-white">
+          <div className="mr-4 truncate text-sm font-bold">{entry.title}</div>
+          <div className="flex shrink-0 items-center gap-3">
             <a
               href={entry.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 text-xs font-mono hover:underline"
+              className="font-mono text-xs text-green-400 hover:underline"
             >
               OPEN_EXTERNAL
             </a>
             <button
               onClick={onClose}
-              className="text-white font-bold text-xl leading-none hover:text-pink-500 transition-colors"
+              className="text-xl leading-none font-bold text-white transition-colors hover:text-pink-500"
             >
               &times;
             </button>
@@ -95,14 +95,14 @@ export default function Writings() {
   return (
     <section
       id="writings"
-      className="bg-pink-500 p-8 border-4 border-black relative overflow-hidden"
+      className="relative overflow-hidden border-4 border-black bg-pink-500 p-8"
     >
-      <div className="absolute top-0 right-0 p-4 opacity-10 text-8xl font-black italic">
+      <div className="absolute top-0 right-0 p-4 text-8xl font-black italic opacity-10">
         ONCHAIN
       </div>
 
       <h2
-        className="font-bold text-5xl mb-8 uppercase"
+        className="mb-8 text-5xl font-bold uppercase"
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
           color: "black",
@@ -112,17 +112,17 @@ export default function Writings() {
         WRITINGS
       </h2>
 
-      <div className="space-y-4 relative z-10">
+      <div className="relative z-10 space-y-4">
         {WRITINGS.map((entry) => (
           <button
             key={entry.number}
             onClick={() => openEntry(entry)}
-            className="bg-white text-black p-4 border-4 border-black flex justify-between items-center hover:bg-black hover:text-white transition-colors cursor-pointer group w-full text-left"
+            className="group flex w-full cursor-pointer items-center justify-between border-4 border-black bg-white p-4 text-left text-black transition-colors hover:bg-black hover:text-white"
           >
             <div className="font-bold">
               {entry.number} {entry.title}
             </div>
-            <div className="text-xs font-mono group-hover:text-green-400">
+            <div className="font-mono text-xs group-hover:text-green-400">
               {entry.date}
             </div>
           </button>

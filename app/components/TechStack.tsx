@@ -34,12 +34,12 @@ const STACK_ITEMS = [
 export default function TechStack() {
   return (
     <section id="tech">
-      <h2 className="manga-text text-6xl mb-12">THE_STACK</h2>
+      <h2 className="manga-text mb-12 text-6xl">THE_STACK</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
         {STACK_ITEMS.map((item) => (
           <div key={item.label} className={`${item.style} p-4`}>
-            <div className="font-bold text-sm uppercase mb-1">{item.label}</div>
+            <div className="mb-1 text-sm font-bold uppercase">{item.label}</div>
             <div className="text-[10px] opacity-70">{item.description}</div>
           </div>
         ))}

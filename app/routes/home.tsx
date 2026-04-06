@@ -10,9 +10,9 @@ import Footer from "../components/Footer";
 import ScanlineOverlay from "../components/ScanlineOverlay";
 import EyeTracker from "../components/EyeTracker";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "DFArchon — Onchain Reality" },
+    { title: "DFArchon" },
     { name: "description", content: "DFArchon research collective" },
   ];
 }
@@ -24,7 +24,7 @@ export default function Home() {
       <EyeTracker />
       <Navbar />
 
-      <main className="max-w-7xl mx-auto space-y-32">
+      <main className="mx-auto max-w-7xl space-y-32">
         <HeroSection />
         <Marquee />
         <TechStack />
@@ -39,7 +39,7 @@ export default function Home() {
         href="https://dfpunk.xyz"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 green-panel px-4 py-2 font-bold uppercase text-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
+        className="green-panel fixed right-6 bottom-6 z-50 px-4 py-2 text-sm font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
       >
         PLAY DFPUNK
       </a>
