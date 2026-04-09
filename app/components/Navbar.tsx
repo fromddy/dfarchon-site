@@ -1,40 +1,42 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const NAV_ITEMS = [
-  { href: "/#vision", label: "01_VISION" },
-  { href: "/#tech", label: "02_STACK" },
-  { href: "/#projects", label: "03_PROJECTS" },
-  { href: "/#team", label: "04_NODES" },
-  { href: "/timeline", label: "05_TIMELINE" },
+  { href: "/", label: "ABOUT" },
+  { href: "/projects", label: "PROJECTS" },
+  { href: "/team", label: "TEAM" },
+  { href: "/writings", label: "WRITINGS" },
+  { href: "/timeline", label: "TIMELINE" },
 ];
 
 export default function Navbar() {
+  const location = useLocation();
+
   return (
-    <nav className="relative z-10 mb-12 flex flex-wrap gap-2">
+    <nav className="relative z-10 mb-12 flex flex-wrap items-center gap-x-4 gap-y-3">
       <Link
         to="/"
         prefetch="intent"
-        className="pink-panel border-4 border-black p-2 text-xl font-bold uppercase italic no-underline"
+        className="brand-link mr-3 inline-flex items-center justify-center px-5 py-3 text-xl leading-none font-bold uppercase italic no-underline"
       >
-        DFArchon
+        <span className="brand-link-label">DFArchon</span>
       </Link>
 
-      {NAV_ITEMS.map((item) =>
-        item.href === "/timeline" ? (
-          <Link
-            key={item.href}
-            to={item.href}
-            prefetch="intent"
-            className="nav-link"
-          >
-            {item.label}
-          </Link>
-        ) : (
-          <a key={item.href} href={item.href} className="nav-link">
-            {item.label}
-          </a>
-        )
-      )}
+      <div className="flex flex-wrap gap-x-3 gap-y-3">
+        {NAV_ITEMS.map((item) => {
+          const isActive = location.pathname === item.href;
+
+          return (
+            <Link
+              key={item.href}
+              to={item.href}
+              prefetch="intent"
+              className={`nav-link w-36 ${isActive ? "nav-link-active" : ""}`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 }
