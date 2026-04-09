@@ -1,24 +1,23 @@
+import { siteContent } from "../content/site";
+
 export default function HeroSection() {
   return (
     <section id="vision" className="relative">
       <div className="flex flex-col items-start gap-8 md:flex-row md:items-start md:gap-2">
         <div className="w-full md:min-w-0 md:flex-1">
           <h1 className="manga-text mb-8 text-7xl md:text-9xl">
-            DIGITAL
+            {siteContent.hero.titleLines[0]}
             <br />
-            FRONTIER
+            {siteContent.hero.titleLines[1]}
             <br />
-            <span className="text-pink-500">ARCHON</span>
+            <span className="text-pink-500">
+              {siteContent.hero.titleLines[2]}
+            </span>
           </h1>
 
           <div className="bubble mb-8 max-w-2xl">
             <p className="text-lg font-bold text-black">
-
-              DFArchon is a community dedicated to the pursuit of onchain reality, composed of enthusiasts passionate about emerging technologies.
-
-
-
-
+              {siteContent.brand.intro}
             </p>
           </div>
 
@@ -44,14 +43,16 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <div className="tv-logo relative text-center">
-                  <div className="mb-2 font-mono text-6xl text-green-400 md:text-7xl">DFARCHON</div>
+                  <div className="mb-2 font-mono text-6xl text-green-400 md:text-7xl">
+                    {siteContent.brand.displayName}
+                  </div>
                   <div className="font-mono text-xs text-green-400">
-                    NICE TO MEET YOU
+                    {siteContent.hero.tvMessage}
                   </div>
                 </div>
               </div>
               <p className="mt-2 text-xs font-bold uppercase">
-                EST. 2021
+                EST. {siteContent.brand.foundedYear}
               </p>
             </div>
           </div>
@@ -74,13 +75,14 @@ function ManifestoCard() {
     <div className="hero-info-card hero-info-card-green panel-hover-motion min-h-[8.5rem] p-4 md:min-h-[10rem]">
       <span aria-hidden className="panel-glitch-overlay" />
       <div className="panel-content relative z-10">
-        <h3 className="mb-2 border-b-2 border-black font-bold">OUR VISION</h3>
-        <p className="text-sm">
-          We hope to build self-sovereign digital worlds.
-        </p>
-        <p className="text-sm">
-          We value decentralization and privacy.
-        </p>
+        <h3 className="mb-2 border-b-2 border-black font-bold">
+          {siteContent.hero.visionTitle}
+        </h3>
+        {siteContent.hero.visionStatements.map((statement) => (
+          <p key={statement} className="text-sm">
+            {statement}
+          </p>
+        ))}
       </div>
     </div>
   );
@@ -92,12 +94,12 @@ function StatusCard() {
       <span aria-hidden className="panel-glitch-overlay" />
       <div className="panel-content relative z-10">
         <h3 className="mb-2 border-b-2 border-black font-bold">
-          ACTIVE SINCE 2021
+          {siteContent.hero.statusTitle}
         </h3>
         <ul className="space-y-1 text-sm">
-          <li>10 Dark Forest community rounds hosted</li>
-          <li>Active in fully onchain gaming ecosystem </li>
-          <li>Track the latest cutting-edge technologies </li>
+          {siteContent.hero.statusItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </div>
     </div>

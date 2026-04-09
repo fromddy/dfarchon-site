@@ -2,11 +2,12 @@ import type { Route } from "./+types/projects";
 
 import Projects from "../components/Projects";
 import SiteChrome from "../components/SiteChrome";
+import { siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "DFArchon | Projects" },
-    { name: "description", content: "Projects built by DFArchon" },
+    { title: siteContent.pageMeta.projects.title },
+    { name: "description", content: siteContent.pageMeta.projects.description },
   ];
 }
 

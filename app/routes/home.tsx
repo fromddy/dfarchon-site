@@ -1,11 +1,12 @@
 import type { Route } from "./+types/home";
 import HeroSection from "../components/HeroSection";
 import SiteChrome from "../components/SiteChrome";
+import { siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "DFArchon | About" },
-    { name: "description", content: "About the DFArchon research collective" },
+    { title: siteContent.pageMeta.home.title },
+    { name: "description", content: siteContent.pageMeta.home.description },
   ];
 }
 

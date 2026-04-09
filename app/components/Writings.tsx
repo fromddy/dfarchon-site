@@ -1,33 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-
-interface WritingEntry {
-  number: string;
-  title: string;
-  date: string;
-  url: string;
-}
-
-const WRITINGS: WritingEntry[] = [
-  {
-    number: "01.",
-    title: "Replay Time Machine",
-    date: "NOV_2024",
-    url: "https://paragraph.com/@dfarchon/replay-time-machine",
-  },
-  {
-    number: "02.",
-    title: "Function as Entity: A New Attempt at Porting Dark Forest to MUD",
-    date: "AUG_2024",
-    url: "https://paragraph.com/@dfarchon/function-as-entity-a-new-attempt-at-porting-dark-forest-to-mud",
-  },
-  {
-    number: "03.",
-    title: "Modifications to Fog of War in Dark Forest",
-    date: "AUG_2024",
-    url: "https://paragraph.com/@dfarchon/modifications-to-fog-of-war-in-dark-forest",
-  },
-];
+import { writingsContent, type WritingEntry } from "../content/writings";
 
 function ArticleModal({
   entry,
@@ -109,11 +82,11 @@ export default function Writings() {
           textShadow: "3px 3px 0px rgba(0,0,0,0.3)",
         }}
       >
-        WRITINGS
+        {writingsContent.title}
       </h2>
 
       <div className="relative z-10 space-y-4">
-        {WRITINGS.map((entry) => (
+        {writingsContent.entries.map((entry) => (
           <button
             key={entry.number}
             onClick={() => openEntry(entry)}

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import EyeTracker from "./EyeTracker";
 import Footer from "./Footer";
@@ -29,6 +29,7 @@ export default function SiteChrome({
         target="_blank"
         rel="noopener noreferrer"
         className="green-panel fixed right-6 bottom-6 z-50 inline-flex items-center justify-center px-4 py-2 text-sm leading-none font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
+        style={{ "--panel-shadow-color": "var(--white)" } as CSSProperties}
       >
         PLAY DFPUNK
       </a>

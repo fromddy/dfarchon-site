@@ -1,11 +1,12 @@
 import type { Route } from "./+types/timeline";
 import SiteChrome from "../components/SiteChrome";
 import Timeline from "../components/Timeline";
+import { siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "DFArchon | Timeline" },
-    { name: "description", content: "DFArchon development timeline" },
+    { title: siteContent.pageMeta.timeline.title },
+    { name: "description", content: siteContent.pageMeta.timeline.description },
   ];
 }
 
