@@ -6,6 +6,19 @@ export default function EyeTracker() {
   const pupil2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const appShell = document.getElementById("app-shell");
+    const root = document.documentElement;
+
+    const enableInvertMode = () => {
+      appShell?.classList.add("mouse-invert-active");
+      root.classList.add("mouse-invert-active");
+    };
+
+    const disableInvertMode = () => {
+      appShell?.classList.remove("mouse-invert-active");
+      root.classList.remove("mouse-invert-active");
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       const tracker = trackerRef.current;
       if (!tracker) return;
@@ -29,20 +42,21 @@ export default function EyeTracker() {
     const handleMouseDown = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.closest("a, button, iframe, [role='button']")) return;
-      document.body.style.filter = "invert(1)";
+      enableInvertMode();
     };
-    const handleMouseUp = () => {
-      document.body.style.filter = "none";
-    };
+    const handleMouseUp = () => disableInvertMode();
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("blur", disableInvertMode);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("blur", disableInvertMode);
+      disableInvertMode();
     };
   }, []);
 

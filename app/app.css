@@ -7,18 +7,50 @@
   --green: #00ff00;
   --black: #000000;
   --white: #ffffff;
+  --mouse-invert-bg: #d6d6d6;
 }
 
 [id] {
   scroll-margin-top: 80px;
 }
 
+html,
 body {
   background-color: var(--black);
+  transition: background-color 120ms ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
   color: var(--white);
   font-family: "Space Mono", monospace;
   cursor: default;
   overflow-x: hidden;
+  margin: 0;
+}
+
+a,
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html.mouse-invert-active,
+html.mouse-invert-active body {
+  background-color: var(--mouse-invert-bg);
+}
+
+#app-shell {
+  min-height: 100vh;
+  background-color: var(--black);
+  transition:
+    filter 120ms ease,
+    background-color 120ms ease;
+}
+
+#app-shell.mouse-invert-active {
+  filter: invert(1);
 }
 
 /* ===== 漫画风格大标题 ===== */
