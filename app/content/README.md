@@ -23,8 +23,7 @@ Store editable site information in this directory so components can stay focused
 Add a team member:
 
 1. Open `team.ts`.
-2. Append one object to `members`.
-3. Choose an `accent` from `green`, `pink`, or `neutral`.
+2. Append one object to `members` with `name`, `description`, `github`, and `twitter` URLs.
 
 Add a project:
 

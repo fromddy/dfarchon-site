@@ -53,7 +53,7 @@ html.mouse-invert-active body {
   filter: invert(1);
 }
 
-/* ===== 漫画风格大标题 ===== */
+/* ===== Manga-style heading ===== */
 .manga-text {
   font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
@@ -63,7 +63,7 @@ html.mouse-invert-active body {
   line-height: 0.9;
 }
 
-/* ===== 面板样式 ===== */
+/* ===== Panel styles ===== */
 .panel {
   background: var(--white);
   border: 4px solid var(--black);
@@ -74,6 +74,15 @@ html.mouse-invert-active body {
 .panel:hover {
   translate: -2px -2px;
   box-shadow: 12px 12px 0px var(--pink);
+}
+
+.team-card {
+  box-shadow: none;
+}
+
+.team-card:hover {
+  translate: none;
+  box-shadow: none;
 }
 
 .tv-card {
@@ -425,7 +434,7 @@ html.mouse-invert-active body {
   }
 }
 
-/* ===== 扫描线覆盖层 ===== */
+/* ===== Scanline overlay ===== */
 .scanline {
   background: linear-gradient(
     to bottom,
@@ -436,7 +445,7 @@ html.mouse-invert-active body {
   pointer-events: none;
 }
 
-/* ===== 跑马灯 ===== */
+/* ===== Marquee ===== */
 .marquee {
   white-space: nowrap;
   overflow: hidden;
@@ -461,7 +470,7 @@ html.mouse-invert-active body {
 }
 
 
-/* ===== 气泡对话框 ===== */
+/* ===== Speech bubble ===== */
 .bubble {
   position: relative;
   background: #ffffff;
@@ -480,7 +489,7 @@ html.mouse-invert-active body {
   width: 0;
 }
 
-/* ===== 导航链接 ===== */
+/* ===== Navigation links ===== */
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -506,14 +515,49 @@ html.mouse-invert-active body {
   box-shadow: 4px 4px 0px var(--green);
 }
 
-/* ===== 半调纹理 ===== */
+/* ===== Team card social (prominent, full-width blocks) ===== */
+.team-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  padding: 12px 14px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px var(--pink);
+  transition: all 0.06s ease;
+}
+.team-social-link:hover {
+  background: var(--pink);
+  color: white;
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px var(--green);
+}
+
+.team-social-link-flat {
+  box-shadow: none;
+}
+
+.team-social-link-flat:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== Halftone texture ===== */
 .halftone {
   background-image: radial-gradient(var(--black) 15%, transparent 16%);
   background-size: 8px 8px;
   opacity: 0.1;
 }
 
-/* ===== 人物头像 ===== */
+/* ===== Portrait ===== */
 .portrait {
   width: 100%;
   height: 250px;
@@ -527,7 +571,7 @@ html.mouse-invert-active body {
   filter: grayscale(0) contrast(1);
 }
 
-/* ===== 层级标签（竖排文字） ===== */
+/* ===== Layer tag (vertical text) ===== */
 .layer-tag {
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -536,7 +580,7 @@ html.mouse-invert-active body {
   border-left: 4px solid black;
 }
 
-/* ===== 眼球追踪器 ===== */
+/* ===== Eye tracker ===== */
 #eye-tracker {
   position: fixed;
   top: 20px;

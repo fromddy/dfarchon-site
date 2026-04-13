@@ -1,43 +1,22 @@
-export type TeamAccent = "green" | "pink" | "neutral";
-
 export interface TeamMember {
   name: string;
-  role: string;
-  accent: TeamAccent;
+  /** One short line; avoid long bios */
   description: string;
+  github: string;
+  twitter: string;
 }
 
 export const teamContent = {
   title: "TEAM",
   summary: "core contributors",
+  note:
+    "Dark forest players tend to stay hidden, so below is only a partial list of active community members willing to make themselves public.",
   members: [
     {
       name: "ddy",
-      role: "FULL-STACK",
-      accent: "green",
-      description:
-        "Primary architect. 5 years blockchain exp. Circom, Solidity, TypeScript, React.",
-    },
-    {
-      name: "9stx6",
-      role: "FULL-STACK",
-      accent: "pink",
-      description:
-        "Active contributor since 2021. Contracts, frontend, plugins. Top player across onchain games.",
-    },
-    {
-      name: "Claude Zheng",
-      role: "CONTRACTS",
-      accent: "neutral",
-      description:
-        "Smart contract dev. 4 years web3. Solidity, Circom, Go. Ex-Celer, ARPA, Mantle.",
-    },
-    {
-      name: "SansX",
-      role: "SYSTEMS",
-      accent: "green",
-      description:
-        "Backend specialist. Go, Rust, Python, TypeScript. Built replay engine & QA infra.",
+      description: "developer",
+      github: "https://github.com/fromddy",
+      twitter: "https://x.com/ddy_mainland",
     },
   ] satisfies TeamMember[],
 } as const;
