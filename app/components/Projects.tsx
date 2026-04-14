@@ -23,6 +23,46 @@ const showcaseThemeMap: Record<
     text: "font-bold text-black",
     meta: "text-xs opacity-50",
   },
+  red: {
+    container: "bg-red-500",
+    text: "font-bold text-white",
+    meta: "text-xs opacity-75",
+  },
+  amber: {
+    container: "bg-amber-400",
+    text: "font-bold text-black",
+    meta: "text-xs opacity-60",
+  },
+  cyan: {
+    container: "bg-cyan-400",
+    text: "font-bold text-black",
+    meta: "text-xs opacity-60",
+  },
+  blue: {
+    container: "bg-blue-500",
+    text: "font-bold text-white",
+    meta: "text-xs opacity-75",
+  },
+  lime: {
+    container: "bg-lime-400",
+    text: "font-bold text-black",
+    meta: "text-xs opacity-60",
+  },
+  apollo: {
+    container: "bg-yellow-300",
+    text: "font-bold text-black",
+    meta: "text-xs opacity-60",
+  },
+  zinc: {
+    container: "bg-zinc-700",
+    text: "text-white",
+    meta: "text-xs opacity-70",
+  },
+  orange: {
+    container: "bg-orange-400",
+    text: "font-bold text-black",
+    meta: "text-xs opacity-60",
+  },
   pink: {
     container: "bg-pink-500",
     text: "font-bold text-white",
@@ -79,7 +119,7 @@ export default function Projects() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="panel group block overflow-hidden"
+            className="panel group relative block overflow-hidden hover:z-[60]"
           >
             <ProjectShowcaseCard project={project} />
             <div className="p-4">

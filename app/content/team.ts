@@ -10,7 +10,7 @@ export const teamContent = {
   title: "TEAM",
   summary: "core contributors",
   note:
-    "Dark forest players tend to stay hidden, so below is only a partial list of active community members willing to make themselves public.",
+    "Dark forest players tend to stay hidden, so this is only a partial public list.",
   members: [
     {
       name: "ddy",
