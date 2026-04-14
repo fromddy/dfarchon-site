@@ -77,12 +77,41 @@ html.mouse-invert-active body {
 }
 
 .team-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   box-shadow: none;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08) 0,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0) 6px
+  );
+  transition: opacity 0.16s ease;
+}
+
+.team-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .team-card:hover {
   translate: none;
   box-shadow: none;
+}
+
+.team-card:hover::before {
+  opacity: 0;
 }
 
 .tv-card {
