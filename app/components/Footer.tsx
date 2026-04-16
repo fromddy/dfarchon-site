@@ -3,7 +3,7 @@ import { siteContent } from "../content/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-32 border-t-8 border-black pt-12 pb-24">
+    <footer className="mt-20 border-t-8 border-black pt-8 pb-24 md:mt-32 md:pt-12">
       <div className="-mx-4 md:-mx-8">
         <Marquee />
       </div>
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="green-panel p-8">
+        <div className="green-panel mx-auto w-full max-w-[22rem] p-5 sm:max-w-none sm:p-6 md:p-8">
           <h4 className="mb-4 font-bold uppercase">SYSTEM_LOG</h4>
           <div className="space-y-1 font-mono text-[10px] opacity-80">
             {siteContent.footer.systemLogs.map((log, i) => (

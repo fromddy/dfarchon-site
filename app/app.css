@@ -71,10 +71,6 @@ html.mouse-invert-active body {
   box-shadow: 8px 8px 0px var(--pink);
   transition: transform 0.1s;
 }
-.panel:hover {
-  translate: -2px -2px;
-  box-shadow: 12px 12px 0px var(--pink);
-}
 
 .team-card {
   position: relative;
@@ -104,20 +100,12 @@ html.mouse-invert-active body {
   z-index: 1;
 }
 
-.team-card:hover::before {
-  opacity: 0;
-}
-
 .tv-card {
   transform: rotate(7deg);
   transform-origin: center;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-}
-
-.tv-card:hover {
-  transform: rotate(0deg);
 }
 
 .tv-screen {
@@ -183,19 +171,6 @@ html.mouse-invert-active body {
     opacity 0.12s ease;
 }
 
-.brand-link:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 8px 8px 0px var(--black);
-  filter: saturate(1.08) contrast(1.05);
-  animation: brand-lock-jitter 460ms steps(4, end) 1;
-}
-
-.brand-link:hover::after {
-  inset: -9px;
-  opacity: 1;
-  animation: brand-corners-lock 460ms steps(4, end) 1;
-}
-
 .brand-link-label {
   position: relative;
   z-index: 2;
@@ -204,10 +179,6 @@ html.mouse-invert-active body {
   text-shadow:
     2px 0 rgba(255, 255, 255, 0.22),
     0 0 1px rgba(255, 255, 255, 0.35);
-}
-
-.brand-link:hover .brand-link-label {
-  animation: brand-label-lock 460ms steps(4, end) 1;
 }
 
 .green-panel {
@@ -278,23 +249,6 @@ html.mouse-invert-active body {
     rgba(255, 255, 255, 0) 82%
   );
   transform: translateX(-140%) skewX(-18deg);
-}
-
-.panel-hover-motion:hover {
-  animation: panel-hover-cyber 520ms steps(4, end) 1;
-}
-
-.panel-hover-motion:hover .panel-glitch-overlay {
-  animation: panel-scan-burst 520ms steps(5, end) 1;
-}
-
-.panel-hover-motion:hover .panel-glitch-overlay::before {
-  opacity: 1;
-  animation: panel-sweep 520ms linear 1;
-}
-
-.panel-hover-motion:hover .panel-content {
-  animation: panel-content-glitch 520ms steps(5, end) 1;
 }
 
 @keyframes panel-hover-cyber {
@@ -525,12 +479,6 @@ html.mouse-invert-active body {
   line-height: 1;
   transition: all 0.05s;
 }
-.nav-link:hover {
-  background: var(--pink);
-  color: white;
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0px var(--green);
-}
 
 .nav-link-active {
   background: var(--pink);
@@ -556,12 +504,6 @@ html.mouse-invert-active body {
   text-decoration: none;
   box-shadow: 4px 4px 0px var(--pink);
   transition: all 0.06s ease;
-}
-.team-social-link:hover {
-  background: var(--pink);
-  color: white;
-  transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0px var(--green);
 }
 
 .team-social-link-flat {
@@ -634,4 +576,134 @@ html.mouse-invert-active body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .panel:hover {
+    translate: -2px -2px;
+    box-shadow: 12px 12px 0px var(--pink);
+  }
+
+  .team-card:hover::before {
+    opacity: 0;
+  }
+
+  .tv-card:hover {
+    transform: rotate(0deg);
+  }
+
+  .brand-link:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px var(--black);
+    filter: saturate(1.08) contrast(1.05);
+    animation: brand-lock-jitter 460ms steps(4, end) 1;
+  }
+
+  .brand-link:hover::after {
+    inset: -9px;
+    opacity: 1;
+    animation: brand-corners-lock 460ms steps(4, end) 1;
+  }
+
+  .brand-link:hover .brand-link-label {
+    animation: brand-label-lock 460ms steps(4, end) 1;
+  }
+
+  .panel-hover-motion:hover {
+    animation: panel-hover-cyber 520ms steps(4, end) 1;
+  }
+
+  .panel-hover-motion:hover .panel-glitch-overlay {
+    animation: panel-scan-burst 520ms steps(5, end) 1;
+  }
+
+  .panel-hover-motion:hover .panel-glitch-overlay::before {
+    opacity: 1;
+    animation: panel-sweep 520ms linear 1;
+  }
+
+  .panel-hover-motion:hover .panel-content {
+    animation: panel-content-glitch 520ms steps(5, end) 1;
+  }
+
+  .nav-link:hover {
+    background: var(--pink);
+    color: white;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--green);
+  }
+
+  .team-social-link:hover {
+    background: var(--pink);
+    color: white;
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--green);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .panel:active {
+    translate: -2px -2px;
+    box-shadow: 12px 12px 0px var(--pink);
+  }
+
+  .team-card:active::before {
+    opacity: 0;
+  }
+
+  .tv-card:active {
+    transform: rotate(0deg);
+  }
+
+  .brand-link:active {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px var(--black);
+    filter: saturate(1.08) contrast(1.05);
+    animation: brand-lock-jitter 460ms steps(4, end) 1;
+  }
+
+  .brand-link:active::after {
+    inset: -9px;
+    opacity: 1;
+    animation: brand-corners-lock 460ms steps(4, end) 1;
+  }
+
+  .brand-link:active .brand-link-label {
+    animation: brand-label-lock 460ms steps(4, end) 1;
+  }
+
+  .panel-hover-motion:active {
+    animation: panel-hover-cyber 520ms steps(4, end) 1;
+  }
+
+  .panel-hover-motion:active .panel-glitch-overlay {
+    animation: panel-scan-burst 520ms steps(5, end) 1;
+  }
+
+  .panel-hover-motion:active .panel-glitch-overlay::before {
+    opacity: 1;
+    animation: panel-sweep 520ms linear 1;
+  }
+
+  .panel-hover-motion:active .panel-content {
+    animation: panel-content-glitch 520ms steps(5, end) 1;
+  }
+
+  .nav-link:active {
+    background: var(--pink);
+    color: white;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--green);
+  }
+
+  .team-social-link:active {
+    background: var(--pink);
+    color: white;
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--green);
+  }
+
+  #eye-tracker {
+    display: none;
+  }
 }

@@ -3,9 +3,9 @@ import { siteContent } from "../content/site";
 export default function HeroSection() {
   return (
     <section id="vision" className="relative">
-      <div className="flex flex-col items-start gap-8 md:flex-row md:items-start md:gap-2">
+      <div className="flex flex-col items-start gap-8 md:flex-row md:items-start md:gap-4">
         <div className="w-full md:min-w-0 md:flex-1">
-          <h1 className="manga-text mb-8 text-7xl md:text-9xl">
+          <h1 className="manga-text mb-6 text-5xl sm:text-6xl md:mb-8 md:text-8xl lg:text-9xl">
             {siteContent.hero.titleLines[0]}
             <br />
             {siteContent.hero.titleLines[1]}
@@ -16,19 +16,19 @@ export default function HeroSection() {
           </h1>
 
           <div className="bubble mb-8 max-w-2xl">
-            <p className="text-lg font-bold text-black">
+            <p className="text-base font-bold text-black sm:text-lg">
               {siteContent.brand.intro}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:w-[calc(100%+5rem)] md:grid-cols-2 md:gap-5">
+          <div className="grid justify-items-center grid-cols-1 gap-4 lg:grid-cols-2 lg:justify-items-stretch lg:gap-5">
             <ManifestoCard />
             <StatusCard />
           </div>
         </div>
 
-        <div className="relative w-full md:mt-2 md:w-[min(38rem,42%)] md:flex-none">
-          <div className="panel panel-hover-motion tv-card ml-auto w-full max-w-[48rem] p-6 md:p-8">
+        <div className="relative flex w-full justify-center md:mt-2 md:block md:w-[min(38rem,42%)] md:flex-none">
+          <div className="panel panel-hover-motion tv-card w-full max-w-[22rem] p-4 sm:max-w-[26rem] sm:p-6 md:ml-auto md:max-w-[48rem] md:p-8">
             <span aria-hidden className="panel-glitch-overlay" />
             <div className="panel-content">
               <div className="tv-screen relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-black">
@@ -43,10 +43,10 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <div className="tv-logo relative text-center">
-                  <div className="mb-2 font-mono text-6xl text-green-400 md:text-7xl">
+                  <div className="mb-2 font-mono text-4xl text-green-400 sm:text-5xl md:text-7xl">
                     {siteContent.brand.displayName}
                   </div>
-                  <div className="font-mono text-xs text-green-400">
+                  <div className="font-mono text-[10px] text-green-400 sm:text-xs">
                     {siteContent.hero.tvMessage}
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export default function HeroSection() {
 
 function ManifestoCard() {
   return (
-    <div className="hero-info-card hero-info-card-green panel-hover-motion min-h-[8.5rem] p-4 md:min-h-[10rem]">
+    <div className="hero-info-card hero-info-card-green panel-hover-motion w-full max-w-[22rem] p-4 lg:max-w-none lg:min-h-[10rem]">
       <span aria-hidden className="panel-glitch-overlay" />
       <div className="panel-content relative z-10">
         <h3 className="mb-2 border-b-2 border-black font-bold">
@@ -90,7 +90,7 @@ function ManifestoCard() {
 
 function StatusCard() {
   return (
-    <div className="hero-info-card panel-hover-motion min-h-[8.5rem] p-4 md:min-h-[10rem]">
+    <div className="hero-info-card panel-hover-motion w-full max-w-[22rem] p-4 lg:max-w-none lg:min-h-[10rem]">
       <span aria-hidden className="panel-glitch-overlay" />
       <div className="panel-content relative z-10">
         <h3 className="mb-2 border-b-2 border-black font-bold">

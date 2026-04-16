@@ -12,10 +12,10 @@ interface SiteChromeProps {
 
 export default function SiteChrome({
   children,
-  mainClassName = "mx-auto max-w-7xl space-y-32",
+  mainClassName = "mx-auto max-w-7xl space-y-20 md:space-y-32",
 }: SiteChromeProps) {
   return (
-    <div className="p-4 md:p-8">
+    <div className="p-3 pb-24 sm:p-4 sm:pb-20 md:p-8 md:pb-8">
       <ScanlineOverlay />
       <EyeTracker />
       <Navbar />
@@ -28,7 +28,7 @@ export default function SiteChrome({
         href="https://dfpunk.xyz"
         target="_blank"
         rel="noopener noreferrer"
-        className="green-panel fixed right-6 bottom-6 z-50 inline-flex items-center justify-center px-4 py-2 text-sm leading-none font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
+        className="green-panel fixed right-3 bottom-3 z-50 inline-flex items-center justify-center px-3 py-2 text-xs leading-none font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] sm:right-4 sm:bottom-4 sm:px-4 sm:text-sm md:right-6 md:bottom-6"
         style={{ "--panel-shadow-color": "var(--white)" } as CSSProperties}
       >
         PLAY DFPUNK

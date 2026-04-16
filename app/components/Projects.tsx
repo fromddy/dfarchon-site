@@ -110,16 +110,18 @@ function ProjectShowcaseCard({ project }: { project: ProjectEntry }) {
 export default function Projects() {
   return (
     <section id="projects">
-      <h2 className="manga-text mb-12 text-6xl">{projectsContent.title}</h2>
+      <h2 className="manga-text mb-10 text-4xl sm:text-5xl md:mb-12 md:text-6xl">
+        {projectsContent.title}
+      </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 justify-items-center gap-6 md:grid-cols-2 md:justify-items-stretch lg:grid-cols-4">
         {projectsContent.items.map((project) => (
           <a
             key={project.slug}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="panel group relative block overflow-hidden hover:z-[60]"
+            className="panel group relative block w-full max-w-[22rem] overflow-hidden hover:z-[60] md:max-w-none"
           >
             <ProjectShowcaseCard project={project} />
             <div className="p-4">

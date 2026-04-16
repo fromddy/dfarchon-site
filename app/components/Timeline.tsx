@@ -19,7 +19,7 @@ export default function Timeline() {
   return (
     <div>
       <h1
-        className="mb-6 text-6xl font-bold tracking-widest uppercase md:text-7xl"
+        className="mb-6 text-4xl font-bold tracking-[0.12em] uppercase sm:text-5xl md:text-7xl"
         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
       >
         {timelineContent.title}
@@ -29,33 +29,27 @@ export default function Timeline() {
       </p>
 
       {/* Category legend */}
-      <div className="mb-12 flex flex-wrap gap-6">
+      <div className="mb-10 flex flex-wrap gap-4 sm:mb-12 sm:gap-6">
         {timelineContent.categories.map((cat) => (
           <div
             key={cat.key}
             className="flex items-center gap-2 text-xs tracking-wide uppercase"
           >
             <CategoryMarker category={cat.key} />
-            <span
-              className={
-                cat.key === "grant" ? "text-yellow-400" : "text-gray-300"
-              }
-            >
-              {cat.label}
-            </span>
+            <span className="text-gray-300">{cat.label}</span>
           </div>
         ))}
       </div>
 
       {/* Timeline */}
-      <div className="border-4 border-gray-800 bg-gray-950 p-6 md:p-10">
+      <div className="mx-auto max-w-[24rem] border-4 border-gray-800 bg-gray-950 p-4 sm:max-w-none sm:p-6 md:p-10">
         <div className="relative">
           {/* Vertical line */}
           <div className="absolute top-0 bottom-0 left-[5px] w-[2px] bg-gray-700" />
 
-          <div className="space-y-12">
+          <div className="space-y-10 sm:space-y-12">
             {timelineContent.events.map((event, i) => (
-              <div key={i} className="relative pl-10">
+              <div key={i} className="relative pl-8 sm:pl-10">
                 {/* Marker */}
                 <div className="absolute top-1 left-0">
                   <CategoryMarker category={event.category} />
@@ -68,7 +62,7 @@ export default function Timeline() {
 
                 {/* Title */}
                 <h3
-                  className="mb-2 text-xl font-bold text-white md:text-2xl"
+                  className="mb-2 text-lg font-bold text-white sm:text-xl md:text-2xl"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   {event.title}

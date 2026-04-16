@@ -24,8 +24,8 @@ function ArticleModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative h-[90vh] w-[95vw] border-4 border-black bg-white">
-        <div className="flex items-center justify-between border-b-4 border-black bg-black px-4 py-2 text-white">
+      <div className="relative h-[92vh] w-[calc(100vw-1rem)] border-4 border-black bg-white sm:h-[90vh] sm:w-[95vw]">
+        <div className="flex items-center justify-between gap-3 border-b-4 border-black bg-black px-3 py-2 text-white sm:px-4">
           <div className="mr-4 truncate text-sm font-bold">{entry.title}</div>
           <div className="flex shrink-0 items-center gap-3">
             <a
@@ -48,7 +48,7 @@ function ArticleModal({
         <iframe
           src={entry.url}
           className="w-full border-0"
-          style={{ height: "calc(90vh - 52px)" }}
+          style={{ height: "calc(100% - 52px)" }}
           title={entry.title}
           sandbox="allow-scripts allow-same-origin allow-popups"
         />
@@ -68,14 +68,14 @@ export default function Writings() {
   return (
     <section
       id="writings"
-      className="relative overflow-hidden border-4 border-black bg-pink-500 p-8"
+      className="relative mx-auto max-w-[24rem] overflow-hidden border-4 border-black bg-pink-500 p-4 sm:max-w-none sm:p-6 md:p-8"
     >
-      <div className="absolute top-0 right-0 p-4 text-8xl font-black italic opacity-10">
+      <div className="absolute top-0 right-0 p-3 text-5xl font-black italic opacity-10 sm:p-4 sm:text-7xl md:text-8xl">
         ONCHAIN
       </div>
 
       <h2
-        className="mb-8 text-5xl font-bold uppercase"
+        className="mb-8 text-3xl font-bold uppercase sm:text-4xl md:text-5xl"
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
           color: "black",
@@ -90,7 +90,7 @@ export default function Writings() {
           <button
             key={entry.number}
             onClick={() => openEntry(entry)}
-            className="group flex w-full cursor-pointer items-center justify-between border-4 border-black bg-white p-4 text-left text-black transition-colors hover:bg-black hover:text-white"
+            className="group mx-auto flex w-full max-w-[22rem] cursor-pointer flex-col items-start gap-2 border-4 border-black bg-white p-4 text-left text-black transition-colors hover:bg-black hover:text-white sm:max-w-none sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="font-bold">
               {entry.number} {entry.title}
