@@ -1,6 +1,47 @@
-import { teamContent } from "../content/team";
+import { useMemo } from "react";
+
+import { teamContent, type TeamMember } from "../content/team";
+
+function createSeedFromText(value: string) {
+  let seed = 0;
+
+  for (let index = 0; index < value.length; index += 1) {
+    seed = (seed * 31 + value.charCodeAt(index)) >>> 0;
+  }
+
+  return seed;
+}
+
+function createRng(seed: number) {
+  let currentSeed = seed || 1;
+
+  return () => {
+    currentSeed = (currentSeed * 1664525 + 1013904223) >>> 0;
+    return currentSeed / 2 ** 32;
+  };
+}
+
+function shuffleMembers(members: TeamMember[], seed: number) {
+  const shuffled = [...members];
+  const random = createRng(seed);
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index],
+    ];
+  }
+
+  return shuffled;
+}
 
 export default function Team() {
+  const members = useMemo(() => {
+    const dailySeed = createSeedFromText(new Date().toISOString().slice(0, 10));
+    return shuffleMembers(teamContent.members, dailySeed);
+  }, []);
+
   return (
     <section id="team">
       <h2 className="manga-text mb-4 text-6xl">{teamContent.title}</h2>
@@ -10,7 +51,7 @@ export default function Team() {
       </p>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10">
-        {teamContent.members.map((member) => (
+        {members.map((member) => (
           <div
             key={member.name}
             className="panel team-card group relative z-[60] flex min-h-[21rem] flex-col p-4 md:min-h-[22rem]"
