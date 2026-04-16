@@ -91,7 +91,7 @@ export const timelineContent = {
       category: "milestone",
     },
     {
-      date: "2023-Q1 - 2024 - Q2",
+      date: "2023-Q1 - 2024-Q2",
       title: "DF-ARES v0.1.1 - DF-ARES v0.1.4",
       description:
         "The DF-ARES series marked DFArchon's transition from plugins and experiments to community-operated game rounds with original gameplay mechanics and progression systems. Since then, DFArchon has continued to launch public DF-ARES community rounds, using them as open testbeds for new artifacts, economic mechanics, and early alliance-based collaboration systems.",
@@ -109,6 +109,13 @@ export const timelineContent = {
       title: "DF-GAIA Plugin Framework",
       description:
         "Released DF-GAIA, a public plugin development library for Dark Forest that packaged utility functions and modular sections for players and builders.",
+      category: "launch",
+    },
+    {
+      date: "2021-Q3 - 2022-Q2",
+      title: "Dark Forest Plugins",
+      description:
+        "We developed a variety of Dark Forest plugins for different purposes, such as Highlight Friends, Capture Wait Time, Abandon Area Planets, Map Filter Export, Peace Dove, Towards Center, Claim Best, and more.",
       category: "launch",
     },
     {
