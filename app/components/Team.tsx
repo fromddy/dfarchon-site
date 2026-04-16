@@ -1,46 +1,10 @@
-import { useMemo } from "react";
-
 import { teamContent, type TeamMember } from "../content/team";
 
-function createSeedFromText(value: string) {
-  let seed = 0;
-
-  for (let index = 0; index < value.length; index += 1) {
-    seed = (seed * 31 + value.charCodeAt(index)) >>> 0;
-  }
-
-  return seed;
+interface TeamProps {
+  members: TeamMember[];
 }
 
-function createRng(seed: number) {
-  let currentSeed = seed || 1;
-
-  return () => {
-    currentSeed = (currentSeed * 1664525 + 1013904223) >>> 0;
-    return currentSeed / 2 ** 32;
-  };
-}
-
-function shuffleMembers(members: TeamMember[], seed: number) {
-  const shuffled = [...members];
-  const random = createRng(seed);
-
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(random() * (index + 1));
-    [shuffled[index], shuffled[randomIndex]] = [
-      shuffled[randomIndex],
-      shuffled[index],
-    ];
-  }
-
-  return shuffled;
-}
-
-export default function Team() {
-  const members = useMemo(() => {
-    const dailySeed = createSeedFromText(new Date().toISOString().slice(0, 10));
-    return shuffleMembers(teamContent.members, dailySeed);
-  }, []);
+export default function Team({ members }: TeamProps) {
 
   return (
     <section id="team">
