@@ -6,17 +6,13 @@ export interface TeamMember {
   twitter: string;
 }
 
-export const teamContent = {
-  title: "TEAM",
-  summary: "core contributors",
-  note:
-    "Dark forest players tend to stay hidden, so this is only a partial public list.",
-  members: [
-    {
-      name: "ddy",
-      description: "developer",
-      github: "https://github.com/fromddy",
-      twitter: "https://x.com/ddy_mainland",
-    },
-  ] satisfies TeamMember[],
-} as const;
+import teamContentData from "./team.local.json";
+
+export interface TeamContent {
+  title: string;
+  summary: string;
+  note: string;
+  members: TeamMember[];
+}
+
+export const teamContent: TeamContent = teamContentData;

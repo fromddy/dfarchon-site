@@ -80,7 +80,6 @@ html.mouse-invert-active body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  box-shadow: none;
 }
 
 .team-card::before {
@@ -103,11 +102,6 @@ html.mouse-invert-active body {
 .team-card > * {
   position: relative;
   z-index: 1;
-}
-
-.team-card:hover {
-  translate: none;
-  box-shadow: none;
 }
 
 .team-card:hover::before {

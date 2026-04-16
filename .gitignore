@@ -5,3 +5,7 @@
 # React Router
 /.react-router/
 /build/
+/.netlify/
+
+# Local content overrides
+app/content/team.local.json

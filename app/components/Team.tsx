@@ -5,7 +5,7 @@ export default function Team() {
     <section id="team">
       <h2 className="manga-text mb-4 text-6xl">{teamContent.title}</h2>
       <p className="mb-12 text-sm text-gray-400">{teamContent.summary}</p>
-      <p className="-mt-9 mb-12 max-w-3xl text-sm leading-relaxed text-gray-300 md:text-base">
+      <p className="-mt-9 mb-12 max-w-none whitespace-nowrap text-sm text-gray-300 md:text-base">
         {teamContent.note}
       </p>
 

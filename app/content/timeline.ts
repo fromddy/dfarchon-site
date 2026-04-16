@@ -17,7 +17,7 @@ export interface TimelineEntry {
 export const timelineContent = {
   title: "TIMELINE",
   intro:
-    "From Dark Forest players to onchain game builders - three years of community-driven development.",
+    "From Dark Forest players to onchain game builders - five years of community-driven development.",
   categories: [
     { key: "launch", label: "LAUNCH", color: "bg-white", shape: "diamond" },
     { key: "grant", label: "GRANT", color: "bg-yellow-400", shape: "diamond" },
