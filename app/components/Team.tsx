@@ -1,10 +1,27 @@
+import { useEffect, useState } from "react";
+
 import { teamContent, type TeamMember } from "../content/team";
 
-interface TeamProps {
-  members: TeamMember[];
+function shuffleMembers(items: TeamMember[]) {
+  const shuffled = [...items];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index],
+    ];
+  }
+
+  return shuffled;
 }
 
-export default function Team({ members }: TeamProps) {
+export default function Team() {
+  const [members, setMembers] = useState(teamContent.members);
+
+  useEffect(() => {
+    setMembers(shuffleMembers(teamContent.members));
+  }, []);
 
   return (
     <section id="team">
