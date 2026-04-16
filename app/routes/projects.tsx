@@ -2,13 +2,10 @@ import type { Route } from "./+types/projects";
 
 import Projects from "../components/Projects";
 import SiteChrome from "../components/SiteChrome";
-import { siteContent } from "../content/site";
+import { getPageMetaDescriptors, siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
-  return [
-    { title: siteContent.pageMeta.projects.title },
-    { name: "description", content: siteContent.pageMeta.projects.description },
-  ];
+  return getPageMetaDescriptors(siteContent.pageMeta.projects);
 }
 
 export default function ProjectsPage() {

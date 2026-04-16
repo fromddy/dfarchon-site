@@ -2,13 +2,10 @@ import type { Route } from "./+types/team";
 
 import SiteChrome from "../components/SiteChrome";
 import Team from "../components/Team";
-import { siteContent } from "../content/site";
+import { getPageMetaDescriptors, siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
-  return [
-    { title: siteContent.pageMeta.team.title },
-    { name: "description", content: siteContent.pageMeta.team.description },
-  ];
+  return getPageMetaDescriptors(siteContent.pageMeta.team);
 }
 
 export default function TeamPage() {

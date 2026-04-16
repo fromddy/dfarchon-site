@@ -2,13 +2,10 @@ import type { Route } from "./+types/writings";
 
 import SiteChrome from "../components/SiteChrome";
 import Writings from "../components/Writings";
-import { siteContent } from "../content/site";
+import { getPageMetaDescriptors, siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
-  return [
-    { title: siteContent.pageMeta.writings.title },
-    { name: "description", content: siteContent.pageMeta.writings.description },
-  ];
+  return getPageMetaDescriptors(siteContent.pageMeta.writings);
 }
 
 export default function WritingsPage() {

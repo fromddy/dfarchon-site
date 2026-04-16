@@ -1,13 +1,10 @@
 import type { Route } from "./+types/timeline";
 import SiteChrome from "../components/SiteChrome";
 import Timeline from "../components/Timeline";
-import { siteContent } from "../content/site";
+import { getPageMetaDescriptors, siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
-  return [
-    { title: siteContent.pageMeta.timeline.title },
-    { name: "description", content: siteContent.pageMeta.timeline.description },
-  ];
+  return getPageMetaDescriptors(siteContent.pageMeta.timeline);
 }
 
 export default function TimelinePage() {

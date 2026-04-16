@@ -5,10 +5,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { getPageMetaDescriptors, siteContent } from "./content/site";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -24,14 +26,49 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export function meta() {
+  return getPageMetaDescriptors(siteContent.pageMeta.home);
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const canonicalUrl = location.pathname || "/";
+  const shareImageUrl = siteContent.seo.ogImagePath;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: siteContent.brand.name,
+      sameAs: siteContent.footer.socialLinks.map((link) => link.href),
+      description: siteContent.brand.intro,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: siteContent.brand.name,
+      description: siteContent.brand.intro,
+    },
+  ];
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <meta property="og:site_name" content={siteContent.brand.name} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={shareImageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={siteContent.seo.twitterHandle} />
+        <meta name="twitter:image" content={shareImageUrl} />
+        <link rel="canonical" href={canonicalUrl} />
         <Links />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body>
         <div id="app-shell">{children}</div>

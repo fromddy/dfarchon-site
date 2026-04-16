@@ -1,13 +1,10 @@
 import type { Route } from "./+types/home";
 import HeroSection from "../components/HeroSection";
 import SiteChrome from "../components/SiteChrome";
-import { siteContent } from "../content/site";
+import { getPageMetaDescriptors, siteContent } from "../content/site";
 
 export function meta(_args: Route.MetaArgs) {
-  return [
-    { title: siteContent.pageMeta.home.title },
-    { name: "description", content: siteContent.pageMeta.home.description },
-  ];
+  return getPageMetaDescriptors(siteContent.pageMeta.home);
 }
 
 export default function Home() {

@@ -1,6 +1,14 @@
 export interface PageMeta {
   title: string;
   description: string;
+  path: string;
+  keywords?: string[];
+}
+
+export interface SiteSeoConfig {
+  defaultKeywords: string[];
+  ogImagePath: string;
+  twitterHandle: string;
 }
 
 export interface SocialLink {
@@ -46,26 +54,70 @@ export const siteContent = {
       "[00:00:15] ONCHAIN_REALITY: ACTIVE",
     ],
   },
+  seo: {
+    defaultKeywords: [
+      "DFArchon",
+      "Dark Forest",
+      "onchain gaming",
+      "fully onchain games",
+      "crypto gaming",
+      "zk gaming",
+      "onchain reality",
+      "web3 community",
+    ],
+    ogImagePath: "/logo.jpg",
+    twitterHandle: "@DFArchon",
+  } satisfies SiteSeoConfig,
   pageMeta: {
     home: {
       title: "DFArchon | About",
-      description: "About the DFArchon research collective",
+      description:
+        "Learn about DFArchon, a community exploring onchain reality through Dark Forest, fully onchain games, and emerging decentralized technologies.",
+      path: "/",
+      keywords: ["DFArchon about", "Dark Forest community", "onchain research collective"],
     },
     projects: {
       title: "DFArchon | Projects",
-      description: "Projects built by DFArchon",
+      description:
+        "Explore DFArchon projects spanning Dark Forest experiments, community rounds, and fully onchain game infrastructure.",
+      path: "/projects",
+      keywords: ["DFArchon projects", "Dark Forest tools", "fully onchain game projects"],
     },
     team: {
       title: "DFArchon | Team",
-      description: "Meet the DFArchon team",
+      description:
+        "Meet the DFArchon contributors building community rounds, experimental systems, and onchain gaming experiences.",
+      path: "/team",
+      keywords: ["DFArchon team", "onchain builders", "Dark Forest contributors"],
     },
     timeline: {
       title: "DFArchon | Timeline",
-      description: "DFArchon development timeline",
+      description:
+        "Follow the DFArchon timeline from early Dark Forest plugins to public community rounds, MUD migration, and onchain game releases.",
+      path: "/timeline",
+      keywords: ["DFArchon timeline", "Dark Forest history", "onchain gaming roadmap"],
     },
     writings: {
       title: "DFArchon | Writings",
-      description: "Writings and essays from DFArchon",
+      description:
+        "Read DFArchon writings on onchain reality, decentralized worlds, Dark Forest, and the future of fully onchain games.",
+      path: "/writings",
+      keywords: ["DFArchon writings", "onchain essays", "Dark Forest articles"],
     },
   } satisfies Record<string, PageMeta>,
 } as const;
+
+export function getPageMetaDescriptors(page: PageMeta) {
+  const keywords = [...siteContent.seo.defaultKeywords, ...(page.keywords ?? [])].join(", ");
+
+  return [
+    { title: page.title },
+    { name: "description", content: page.description },
+    { name: "keywords", content: keywords },
+    { name: "robots", content: "index,follow" },
+    { property: "og:title", content: page.title },
+    { property: "og:description", content: page.description },
+    { name: "twitter:title", content: page.title },
+    { name: "twitter:description", content: page.description },
+  ];
+}
