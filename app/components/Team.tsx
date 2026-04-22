@@ -20,7 +20,12 @@ export default function Team() {
   const [members, setMembers] = useState(teamContent.members);
 
   useEffect(() => {
-    setMembers(shuffleMembers(teamContent.members));
+    // Shuffle after the initial paint so SSR output stays deterministic.
+    const frameId = window.requestAnimationFrame(() => {
+      setMembers(shuffleMembers(teamContent.members));
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, []);
 
   return (

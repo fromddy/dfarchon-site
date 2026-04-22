@@ -8,6 +8,11 @@ export default function EyeTracker() {
   useEffect(() => {
     const appShell = document.getElementById("app-shell");
     const root = document.documentElement;
+    const isInteractiveTarget = (target: EventTarget | null) => {
+      return target instanceof HTMLElement
+        ? Boolean(target.closest("a, button, iframe, [role='button']"))
+        : false;
+    };
 
     const enableInvertMode = () => {
       appShell?.classList.add("mouse-invert-active");
@@ -19,7 +24,9 @@ export default function EyeTracker() {
       root.classList.remove("mouse-invert-active");
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handlePointerMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+
       const tracker = trackerRef.current;
       if (!tracker) return;
 
@@ -39,22 +46,23 @@ export default function EyeTracker() {
       if (pupil2Ref.current) pupil2Ref.current.style.transform = transform;
     };
 
-    const handleMouseDown = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest("a, button, iframe, [role='button']")) return;
+    const handlePointerDown = (e: PointerEvent) => {
+      if (isInteractiveTarget(e.target)) return;
       enableInvertMode();
     };
-    const handleMouseUp = () => disableInvertMode();
+    const handlePointerEnd = () => disableInvertMode();
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("pointerup", handlePointerEnd);
+    document.addEventListener("pointercancel", handlePointerEnd);
     window.addEventListener("blur", disableInvertMode);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("pointerup", handlePointerEnd);
+      document.removeEventListener("pointercancel", handlePointerEnd);
       window.removeEventListener("blur", disableInvertMode);
       disableInvertMode();
     };
