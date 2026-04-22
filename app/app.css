@@ -647,6 +647,12 @@ html.mouse-invert-active body {
     box-shadow: 12px 12px 0px var(--pink);
   }
 
+  .green-panel:active,
+  .pink-panel:active {
+    translate: -2px -2px;
+    box-shadow: 12px 12px 0px var(--panel-shadow-color, var(--black));
+  }
+
   .team-card:active::before {
     opacity: 0;
   }

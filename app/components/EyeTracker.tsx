@@ -8,9 +8,13 @@ export default function EyeTracker() {
   useEffect(() => {
     const appShell = document.getElementById("app-shell");
     const root = document.documentElement;
-    const isInteractiveTarget = (target: EventTarget | null) => {
+    const isPressHandledTarget = (target: EventTarget | null) => {
       return target instanceof HTMLElement
-        ? Boolean(target.closest("a, button, iframe, [role='button']"))
+        ? Boolean(
+            target.closest(
+              "a, button, iframe, [role='button'], .panel, .panel-hover-motion, .hero-info-card, .green-panel, .pink-panel",
+            ),
+          )
         : false;
     };
 
@@ -47,7 +51,7 @@ export default function EyeTracker() {
     };
 
     const handlePointerDown = (e: PointerEvent) => {
-      if (isInteractiveTarget(e.target)) return;
+      if (isPressHandledTarget(e.target)) return;
       enableInvertMode();
     };
     const handlePointerEnd = () => disableInvertMode();

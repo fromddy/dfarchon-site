@@ -28,7 +28,7 @@ export default function SiteChrome({
         href="https://dfpunk.xyz"
         target="_blank"
         rel="noopener noreferrer"
-        className="green-panel fixed right-3 bottom-3 z-50 inline-flex items-center justify-center px-3 py-2 text-xs leading-none font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] sm:right-4 sm:bottom-4 sm:px-4 sm:text-sm md:right-6 md:bottom-6"
+        className="green-panel fixed right-3 bottom-3 z-[200] inline-flex items-center justify-center px-3 py-2 text-xs leading-none font-bold uppercase transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] sm:right-4 sm:bottom-4 sm:px-4 sm:text-sm md:right-6 md:bottom-6"
         style={{ "--panel-shadow-color": "var(--white)" } as CSSProperties}
       >
         PLAY DFPUNK
