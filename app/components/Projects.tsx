@@ -121,16 +121,20 @@ export default function Projects() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="panel group relative block w-full max-w-[22rem] overflow-hidden hover:z-[60] md:max-w-none"
+            className="panel-link group relative block h-full w-full max-w-[22rem] hover:z-[60] md:max-w-none"
           >
-            <ProjectShowcaseCard project={project} />
-            <div className="p-4">
-              <h4 className="mb-1 text-xl font-bold">{project.title}</h4>
-              <p className="mb-4 text-xs">{project.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] opacity-50">{project.status}</span>
-                <div className="flex h-8 w-8 items-center justify-center bg-black font-bold text-white transition-colors group-hover:bg-pink-500">
-                  -&gt;
+            <div className="panel flex h-full flex-col overflow-hidden">
+              <ProjectShowcaseCard project={project} />
+              <div className="flex flex-1 flex-col p-4">
+                <h4 className="mb-1 text-xl font-bold">{project.title}</h4>
+                <p className="mb-4 text-xs">{project.description}</p>
+                <div className="mt-auto flex items-center justify-between">
+                  <span className="text-[10px] opacity-50">
+                    {project.status}
+                  </span>
+                  <div className="flex h-8 w-8 items-center justify-center bg-black font-bold text-white transition-colors group-hover:bg-pink-500">
+                    -&gt;
+                  </div>
                 </div>
               </div>
             </div>

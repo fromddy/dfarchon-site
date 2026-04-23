@@ -72,6 +72,16 @@ html.mouse-invert-active body {
   transition: transform 0.1s;
 }
 
+/* Stationary anchor wrapper around a .panel. The <a> stays put while the
+   inner .panel does the lift on hover, so the hit area never moves and
+   the cursor cannot fall off the edge. Use this for clickable panels
+   (e.g. project cards). */
+.panel-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .team-card {
   position: relative;
   overflow: hidden;
@@ -466,23 +476,47 @@ html.mouse-invert-active body {
   width: 0;
 }
 
-/* ===== Navigation links ===== */
+/* ===== Navigation links =====
+   Two-layer button to fully eliminate hover flicker:
+   - .nav-link is the *stationary* hit area. It carries layout (width/grid)
+     and never moves, so the hover region is rock-solid regardless of the
+     cursor's position relative to the button edge.
+   - .nav-link-shape is the *visible* button. Only this inner element gets
+     the transform on hover, so the lift effect is preserved while the
+     hit area stays put. No edge flicker possible. */
 .nav-link {
+  display: inline-flex;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-link-shape {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
   border: 3px solid black;
   padding: 10px 15px;
   background: white;
-  color: black;
+  color: inherit;
   font-weight: bold;
   line-height: 1;
-  transition: all 0.05s;
+  will-change: transform;
+  transition:
+    background-color 0.08s ease,
+    color 0.08s ease,
+    transform 0s,
+    box-shadow 0s;
 }
 
 .nav-link-active {
-  background: var(--pink);
   color: white;
+}
+
+.nav-link-active .nav-link-shape {
+  background: var(--pink);
   box-shadow: 4px 4px 0px var(--green);
 }
 
@@ -503,7 +537,9 @@ html.mouse-invert-active body {
   line-height: 1;
   text-decoration: none;
   box-shadow: 4px 4px 0px var(--pink);
-  transition: all 0.06s ease;
+  transition:
+    background-color 0.08s ease,
+    color 0.08s ease;
 }
 
 .team-social-link-flat {
@@ -584,6 +620,13 @@ html.mouse-invert-active body {
     box-shadow: 12px 12px 0px var(--pink);
   }
 
+  /* When wrapped in .panel-link, hover is detected on the stationary
+     anchor so the lift never causes the cursor to leave the hit area. */
+  .panel-link:hover .panel {
+    translate: -2px -2px;
+    box-shadow: 12px 12px 0px var(--pink);
+  }
+
   .team-card:hover::before {
     opacity: 0;
   }
@@ -627,8 +670,11 @@ html.mouse-invert-active body {
   }
 
   .nav-link:hover {
-    background: var(--pink);
     color: white;
+  }
+
+  .nav-link:hover .nav-link-shape {
+    background: var(--pink);
     transform: translate(-4px, -4px);
     box-shadow: 4px 4px 0px var(--green);
   }
@@ -643,6 +689,11 @@ html.mouse-invert-active body {
 
 @media (hover: none), (pointer: coarse) {
   .panel:active {
+    translate: -2px -2px;
+    box-shadow: 12px 12px 0px var(--pink);
+  }
+
+  .panel-link:active .panel {
     translate: -2px -2px;
     box-shadow: 12px 12px 0px var(--pink);
   }
@@ -696,8 +747,11 @@ html.mouse-invert-active body {
   }
 
   .nav-link:active {
-    background: var(--pink);
     color: white;
+  }
+
+  .nav-link:active .nav-link-shape {
+    background: var(--pink);
     transform: translate(-4px, -4px);
     box-shadow: 4px 4px 0px var(--green);
   }

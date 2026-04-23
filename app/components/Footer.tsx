@@ -25,9 +25,11 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav-link bg-black text-white"
+                className="nav-link"
               >
-                {link.label}
+                <span className="nav-link-shape bg-black text-white">
+                  {link.label}
+                </span>
               </a>
             ))}
           </div>

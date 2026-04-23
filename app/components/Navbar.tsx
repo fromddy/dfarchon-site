@@ -32,7 +32,7 @@ export default function Navbar() {
               prefetch="intent"
               className={`nav-link w-full text-sm sm:w-36 sm:text-base ${isActive ? "nav-link-active" : ""}`}
             >
-              {item.label}
+              <span className="nav-link-shape">{item.label}</span>
             </Link>
           );
         })}
