@@ -43,7 +43,7 @@ export const projectsContent = {
       description:
         "Porting Dark Forest to the Aztec privacy-focused L2 using Noir. Native private execution for fog of war.",
       status: "",
-      url: "https://github.com/dfarchon/dfpunk-aztec",
+      url: "https://github.com/dfarchon/dark-forest-aztec",
       showcase: {
         theme: "purple",
         headline: "DF AZTEC",
@@ -130,6 +130,20 @@ export const projectsContent = {
       showcase: {
         theme: "apollo",
         headline: "DF APOLLO",
+        subheadline: "",
+        meta: "",
+      },
+    },
+    {
+      slug: "replay-time-machine",
+      title: "Replay Time Machine",
+      description:
+        "Replay system for Dark Forest v0.6.3.",
+      status: "",
+      url: "https://dark-forest-replay.netlify.app/",
+      showcase: {
+        theme: "pink",
+        headline: "Replay Time Machine",
         subheadline: "",
         meta: "",
       },
